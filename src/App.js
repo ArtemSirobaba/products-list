@@ -2,6 +2,8 @@ import React from "react";
 import Routes from "./navigation/routes";
 import { createGlobalStyle } from "styled-components";
 import { ThemeProvider } from "styled-components";
+import {data} from "./pages/products/data";
+import useLocalStorage from "./hooks/useLocalStorage ";
 
 const GlobalStyle = createGlobalStyle`
 * {
@@ -29,6 +31,10 @@ body {
 `;
 
 const App = () => {
+  const [products] = useLocalStorage("products");
+  if (!products) {
+    localStorage.setItem("products", JSON.stringify(data));
+  }
   return (
     <ThemeProvider theme={{}}>
       <GlobalStyle />

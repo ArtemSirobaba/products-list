@@ -9,6 +9,7 @@ import { CardWrapper, Wrapper, PageWrapper } from "./styles";
 
 const Products = () => {
   const [products] = useLocalStorage("products");
+
   const [productsList, setProductsList] = useState([...products]);
   const [name, setName] = useState("Default");
   const [openModal, setOpenModal] = useState(false);
